@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bgc {
+            margin: 5% 50% 0% 40%;
+            text-align: center;
+            padding: 40px;
+            background-color: aqua;
+        }
+
+        #newQuoteButton {
+            margin: 5% 50% 0% 40%;
+            padding: 40px;
+            background-color: orange;
+        }
+        #quote{
+text-align: center;
+margin: 5% 50% 0% 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <button id="bgc">Change BackGround Color</button>
+    <script>
+        function random() {
+            change = '0123456789ABCDEF';
+            color = '#';
+            for (i = 0; i < 6; i++) {
+                color = color + change[Math.floor(Math.random() * 16)]
+            }
+            return color;
+        }
+
+        back = document.getElementById("bgc");
+        back.addEventListener("click", () => {
+            document.body.style.backgroundColor = random()
+        })
+    </script>
+
+
+
+
+
+    <button id="newQuoteButton">New Quote</button>
+    <div id="quote">Click the button to get a random quote!</div>
+
+    <script>
+        quotes = [
+            "The best way to predict the future is to create it.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "Life is 10% what happens to us and 90% how we react to it.",
+            "Your time is limited, so don’t waste it living someone else’s life.",
+            "The only limit to our realization of tomorrow is our doubts of today."
+        ];
+
+        quoteDisplay = document.getElementById('quote');
+        button = document.getElementById('newQuoteButton');
+
+        button.addEventListener('click', () => {
+            randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteDisplay.textContent = quotes[randomIndex];
+        });
+    </script>
+
+
+</body>
+
+</html>
